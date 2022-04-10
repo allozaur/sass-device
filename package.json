@@ -1,6 +1,6 @@
 {
   "name": "sass-device",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "SCSS mixins with media queries for different devices",
   "main": "index.scss",
   "scripts": {
