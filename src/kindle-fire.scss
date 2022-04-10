@@ -1,0 +1,14 @@
+@mixin kindle-fire($model, $orientation: null) {
+
+  @if $model == "HD 7" {
+    @include media-query(800px, 1280px, $orientation, 1.5) {
+      @content;
+    }
+  }
+
+  @if $model == "HD 8.9" {
+    @include media-query(1200px, 1600px, $orientation, 1.5) {
+      @content;
+    }
+  }
+}

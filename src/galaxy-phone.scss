@@ -1,0 +1,22 @@
+@use "utils/media-query.scss" as *;
+
+@mixin galaxy-phone($model: null, $orientation: null) {
+
+  @if $model == "S3" {
+    @include media-query(360px, 640px, $orientation, 2) {
+      @content;
+    }
+  }
+
+  @if $model == "S4" or $model == "S5" or $model == "Note 3" {
+    @include media-query(360px, 640px, $orientation, 3) {
+      @content;
+    }
+  }
+
+  @else {
+    @include media-query(360px, 640px, $orientation, 4) {
+      @content;
+    }
+  }
+}

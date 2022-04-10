@@ -1,0 +1,56 @@
+@use "utils/media-query.scss" as *;
+
+@mixin ipad($model, $orientation: null) {
+
+  @if $model == "1" or $model == "2" or $model == "Mini" or $model == "Air" {
+    @include media-query(768px, 1024px, $orientation, 1) {
+      @content;
+    }
+  }
+
+  @if $model == "3" or $model == "4" or $model == "Pro 9.7" {
+    @include media-query(768px, 1024px, $orientation, 2) {
+      @content;
+    }
+  }
+
+  @if $model == "Pro 10.5" {
+    @if $orientation == "portrait" {
+      @include media-query(834px, 834px, $orientation, 2) {
+        @content;
+      }
+    }
+
+    @else if $orientation == "landscape" {
+      @include media-query(1112px, 1112px, $orientation, 2) {
+        @content;
+      }
+    }
+
+    @else {
+      @include media-query(834px, 1112px, $orientation, 2) {
+        @content;
+      }
+    }
+  }
+  
+  @if $model == "Pro 12.9" {
+    @if $orientation == "portrait" {
+      @include media-query(1024px, 1024px, $orientation, 2) {
+        @content;
+      }
+    }
+
+    @else if $orientation == "landscape" {
+      @include media-query(1366px, 1366px, $orientation, 2) {
+        @content;
+      }
+    }
+
+    @else {
+      @include media-query(1024px, 1366px, $orientation, 2) {
+        @content;
+      }
+    }
+  }
+}

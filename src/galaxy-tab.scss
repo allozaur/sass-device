@@ -1,0 +1,16 @@
+@use "utils/media-query.scss" as *;
+
+@mixin galaxy-tab($model, $orientation: null) {
+
+  @if $model == "2" {
+    @include media-query(800px, 1280px, $orientation) {
+      @content;
+    }
+  }
+
+  @if $model == "S" {
+    @include media-query(800px, 1280px, $orientation, 2) {
+      @content;
+    }
+  }
+}

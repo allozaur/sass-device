@@ -1,0 +1,51 @@
+@mixin media-query($minDeviceWidth, $maxDeviceWidth, $orientation: null, $minDevicePixelRatio: null, $maxDevicePixelRatio: null) {
+  @if $orientation {
+    @if $orientation == "portrait" {
+      @if $minDevicePixelRatio and $maxDevicePixelRatio {
+        @media only screen and (min-device-width: $minDeviceWidth) and (max-device-width: $maxDeviceWidth) and (-webkit-min-device-pixel-ratio: $minDevicePixelRatio) and (-webkit-max-device-pixel-ratio: $maxDevicePixelRatio) and (orientation: portrait) {
+          @content;
+        }
+      } @else if $minDevicePixelRatio {
+        @media only screen and (min-device-width: $minDeviceWidth) and (max-device-width: $maxDeviceWidth) and (-webkit-min-device-pixel-ratio: $minDevicePixelRatio) and (orientation: portrait) {
+          @content;
+        }
+      } @else {
+        @media only screen and (min-device-width: $minDeviceWidth) and (max-device-width: $maxDeviceWidth) and (orientation: portrait) {
+          @content;
+        }
+      }
+    }
+
+    @if $orientation == "landscape" {
+      @if $minDevicePixelRatio and $maxDevicePixelRatio {
+        @media only screen and (min-device-width: $minDeviceWidth) and (max-device-width: $maxDeviceWidth) and (-webkit-min-device-pixel-ratio: $minDevicePixelRatio) and (-webkit-max-device-pixel-ratio: $maxDevicePixelRatio) and (orientation: landscape) {
+          @content;
+        }
+      } @else if $minDevicePixelRatio {
+        @media only screen and (min-device-width: $minDeviceWidth) and (max-device-width: $maxDeviceWidth) and (-webkit-min-device-pixel-ratio: $minDevicePixelRatio) and (orientation: landscape) {
+          @content;
+        }
+      } @else {
+        @media only screen and (min-device-width: $minDeviceWidth) and (max-device-width: $maxDeviceWidth) and (orientation: landscape) {
+          @content;
+        }
+      }
+    }
+  }
+  
+  @else {
+    @if $minDevicePixelRatio and $maxDevicePixelRatio {
+      @media only screen and (min-device-width: $minDeviceWidth) and (max-device-width: $maxDeviceWidth) and (-webkit-min-device-pixel-ratio: $minDevicePixelRatio) and (-webkit-max-device-pixel-ratio: $maxDevicePixelRatio) {
+        @content;
+      }
+    } @else if $minDevicePixelRatio {
+      @media only screen and (min-device-width: $minDeviceWidth) and (max-device-width: $maxDeviceWidth) and (-webkit-min-device-pixel-ratio: $minDevicePixelRatio) {
+        @content;
+      }
+    } @else {
+      @media only screen and (min-device-width: $minDeviceWidth) and (max-device-width: $maxDeviceWidth) {
+        @content;
+      }
+    }
+  }
+}

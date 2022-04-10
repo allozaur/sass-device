@@ -1,0 +1,58 @@
+@use "utils/media-query.scss" as *;
+
+@mixin iphone($model, $orientation: null) {
+
+  @if $model == "4" or $model == "4s" {
+    @include media-query(320px, 480px, $orientation, 2) {
+      @content;
+    }
+  }
+
+  @if $model == "5" or $model == "5s" {
+    @include media-query(320px, 568px, $orientation, 2) {
+      @content;
+    }
+  }
+
+  @if $model == "6" or $model == "6s" or $model == "7" or $model == "8" {
+    @include media-query(375px, 667px, $orientation, 2) {
+      @content;
+    }
+  }
+  
+  @if $model == "6+" or $model == "7+" or $model == "8+" {
+    @include media-query(414px, 736px, $orientation, 3) {
+      @content;
+    }
+  }
+
+  @if $model == "X" or $model == "Xs" or $model == "11 Pro" or $model == "12 mini" or $model == "13 mini" {
+    @include media-query(375px, 812px, $orientation, 3) {
+      @content;
+    }
+  }
+
+  @if $model == "XR" or $model == "11 mini" {
+    @include media-query(414px, 896px, $orientation, 2) {
+      @content;
+    }
+  }
+
+  @if $model == "Xs Max" or $model == "11 Pro Max" {
+    @include media-query(414px, 896px, $orientation, 3) {
+      @content;
+    }
+  }
+
+  @if $model == "12" or $model == "12 Pro" or $model == "13" or $model == "13 Pro" {
+    @include media-query(414px, 736px, $orientation, 3) {
+      @content;
+    }
+  }
+
+  @if $model == "12 Pro Max" or $model == "13 Pro Max" {
+    @include media-query(428px, 926px, $orientation, 3) {
+      @content;
+    }
+  }
+}
