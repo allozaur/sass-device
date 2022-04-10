@@ -45,7 +45,7 @@
   }
 
   @if $model == "12" or $model == "12 Pro" or $model == "13" or $model == "13 Pro" {
-    @include media-query(414px, 736px, $orientation, 3) {
+    @include media-query(390px, 844px, $orientation, 3) {
       @content;
     }
   }
