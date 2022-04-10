@@ -1,0 +1,27 @@
+{
+  "name": "sass-device",
+  "version": "0.0.1",
+  "description": "SCSS mixins with media queries for different devices",
+  "main": "index.scss",
+  "scripts": {
+    "test": "sass index.scss"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/allozaur/sass-device.git"
+  },
+  "keywords": [
+    "sass",
+    "scss",
+    "css",
+    "media",
+    "query",
+    "device"
+  ],
+  "author": "Aleksander Grygier",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/allozaur/sass-device/issues"
+  },
+  "homepage": "https://github.com/allozaur/sass-device#readme"
+}
