@@ -1,6 +1,6 @@
-@mixin media-query($minDeviceWidth, $maxDeviceWidth, $orientation: null, $minDevicePixelRatio: null, $maxDevicePixelRatio: null, $pwa: null, $pwaMinHeight: null) {
+@mixin media-query($minDeviceWidth, $maxDeviceWidth, $orientation: null, $minDevicePixelRatio: null, $maxDevicePixelRatio: null, $pwaMinHeight: null) {
   
-  @if $pwa {
+  @if $pwaMinHeight {
 
     @if $orientation {
       @if $orientation == "portrait" {
