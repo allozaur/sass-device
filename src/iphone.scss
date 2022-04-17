@@ -1,6 +1,6 @@
 @use "utils/media-query.scss" as *;
 
-@mixin iphone($model, $orientation: null) {
+@mixin iphone($model, $orientation: null, $pwa: null) {
 
   @if $model == "4" or $model == "4s" {
     @include media-query(320px, 480px, $orientation, 2) {
@@ -27,32 +27,50 @@
   }
 
   @if $model == "X" or $model == "Xs" or $model == "11 Pro" or $model == "12 mini" or $model == "13 mini" {
-    @include media-query(375px, 812px, $orientation, 3) {
-      @content;
+    @if $pwa {
+      @include media-query(375px, 812px, $orientation, 3, $pwaMinHeight: 765px) {
+        @content;
+      }
+    } @else {
+      @include media-query(375px, 812px, $orientation, 3) {
+        @content;
+      }
     }
   }
 
-  @if $model == "XR" or $model == "11 mini" {
-    @include media-query(414px, 896px, $orientation, 2) {
-      @content;
-    }
-  }
-
-  @if $model == "Xs Max" or $model == "11 Pro Max" {
-    @include media-query(414px, 896px, $orientation, 3) {
-      @content;
+  @if $model == "XR" or $model == "11 mini" or $model == "Xs Max" or $model == "11 Pro Max"{
+    @if $pwa {
+      @include media-query(414px, 896px, $orientation, 3, $pwaMinHeight: 849px) {
+        @content;
+      }
+    } @else {
+      @include media-query(414px, 896px, $orientation, 3) {
+        @content;
+      }
     }
   }
 
   @if $model == "12" or $model == "12 Pro" or $model == "13" or $model == "13 Pro" {
-    @include media-query(390px, 844px, $orientation, 3) {
-      @content;
+    @if $pwa {
+      @include media-query(390px, 844px, $orientation, 3, $pwaMinHeight: 797px) {
+        @content;
+      }
+    } @else {
+      @include media-query(390px, 844px, $orientation, 3) {
+        @content;
+      }
     }
   }
 
   @if $model == "12 Pro Max" or $model == "13 Pro Max" {
-    @include media-query(428px, 926px, $orientation, 3) {
-      @content;
+    @if $pwa {
+      @include media-query(428px, 926px, $orientation, 3, $pwaMinHeight: 879px) {
+        @content;
+      }
+    } @else {
+      @include media-query(428px, 926px, $orientation, 3) {
+        @content;
+      }
     }
   }
 }

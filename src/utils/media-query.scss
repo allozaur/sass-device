@@ -1,5 +1,59 @@
-@mixin media-query($minDeviceWidth, $maxDeviceWidth, $orientation: null, $minDevicePixelRatio: null, $maxDevicePixelRatio: null) {
-  @if $orientation {
+@mixin media-query($minDeviceWidth, $maxDeviceWidth, $orientation: null, $minDevicePixelRatio: null, $maxDevicePixelRatio: null, $pwa: null, $pwaMinHeight: null) {
+  
+  @if $pwa {
+
+    @if $orientation {
+      @if $orientation == "portrait" {
+        @if $minDevicePixelRatio and $maxDevicePixelRatio {
+          @media only screen and (min-device-width: $minDeviceWidth) and (max-device-width: $maxDeviceWidth) and (-webkit-min-device-pixel-ratio: $minDevicePixelRatio) and (-webkit-max-device-pixel-ratio: $maxDevicePixelRatio) and (orientation: portrait) and (min-height: $pwaMinHeight) {
+            @content;
+          }
+        } @else if $minDevicePixelRatio {
+          @media only screen and (min-device-width: $minDeviceWidth) and (max-device-width: $maxDeviceWidth) and (-webkit-min-device-pixel-ratio: $minDevicePixelRatio) and (orientation: portrait) and (min-height: $pwaMinHeight) {
+            @content;
+          }
+        } @else {
+          @media only screen and (min-device-width: $minDeviceWidth) and (max-device-width: $maxDeviceWidth) and (orientation: portrait) and (min-height: $pwaMinHeight) {
+            @content;
+          }
+        }
+      }
+  
+      @if $orientation == "landscape" {
+        @if $minDevicePixelRatio and $maxDevicePixelRatio {
+          @media only screen and (min-device-width: $minDeviceWidth) and (max-device-width: $maxDeviceWidth) and (-webkit-min-device-pixel-ratio: $minDevicePixelRatio) and (-webkit-max-device-pixel-ratio: $maxDevicePixelRatio) and (orientation: landscape) and (min-height: $pwaMinHeight) {
+            @content;
+          }
+        } @else if $minDevicePixelRatio {
+          @media only screen and (min-device-width: $minDeviceWidth) and (max-device-width: $maxDeviceWidth) and (-webkit-min-device-pixel-ratio: $minDevicePixelRatio) and (orientation: landscape) and (min-height: $pwaMinHeight) {
+            @content;
+          }
+        } @else {
+          @media only screen and (min-device-width: $minDeviceWidth) and (max-device-width: $maxDeviceWidth) and (orientation: landscape) and (min-height: $pwaMinHeight) {
+            @content;
+          }
+        }
+      }
+    }
+
+    @else {
+      @if $minDevicePixelRatio and $maxDevicePixelRatio {
+        @media only screen and (min-device-width: $minDeviceWidth) and (max-device-width: $maxDeviceWidth) and (-webkit-min-device-pixel-ratio: $minDevicePixelRatio) and (-webkit-max-device-pixel-ratio: $maxDevicePixelRatio) and (min-height: $pwaMinHeight) {
+          @content;
+        }
+      } @else if $minDevicePixelRatio {
+        @media only screen and (min-device-width: $minDeviceWidth) and (max-device-width: $maxDeviceWidth) and (-webkit-min-device-pixel-ratio: $minDevicePixelRatio) and (min-height: $pwaMinHeight) {
+          @content;
+        }
+      } @else {
+        @media only screen and (min-device-width: $minDeviceWidth) and (max-device-width: $maxDeviceWidth) and (min-height: $pwaMinHeight) {
+          @content;
+        }
+      }
+    }
+  }
+
+  @else if $orientation {
     @if $orientation == "portrait" {
       @if $minDevicePixelRatio and $maxDevicePixelRatio {
         @media only screen and (min-device-width: $minDeviceWidth) and (max-device-width: $maxDeviceWidth) and (-webkit-min-device-pixel-ratio: $minDevicePixelRatio) and (-webkit-max-device-pixel-ratio: $maxDevicePixelRatio) and (orientation: portrait) {
@@ -32,7 +86,7 @@
       }
     }
   }
-  
+
   @else {
     @if $minDevicePixelRatio and $maxDevicePixelRatio {
       @media only screen and (min-device-width: $minDeviceWidth) and (max-device-width: $maxDeviceWidth) and (-webkit-min-device-pixel-ratio: $minDevicePixelRatio) and (-webkit-max-device-pixel-ratio: $maxDevicePixelRatio) {
